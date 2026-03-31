@@ -1,11 +1,9 @@
 services:
-  # Database Service
-  - type: pgo
+  - type: postgres
     name: parkguard-db
     plan: free
     postgresMajorVersion: 15
 
-  # Node.js REST API
   - type: web
     name: parkguard-api
     env: node
@@ -22,23 +20,3 @@ services:
           property: connectionString
       - key: NODE_ENV
         value: production
-      - key: DB_USER
-        fromDatabase:
-          name: parkguard-db
-          property: user
-      - key: DB_PASSWORD
-        fromDatabase:
-          name: parkguard-db
-          property: password
-      - key: DB_HOST
-        fromDatabase:
-          name: parkguard-db
-          property: host
-      - key: DB_PORT
-        fromDatabase:
-          name: parkguard-db
-          property: port
-      - key: DB_NAME
-        fromDatabase:
-          name: parkguard-db
-          property: database
