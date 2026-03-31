@@ -1,0 +1,14 @@
+❌ Email service configuration error: Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (C:\Projects\ParkGuard\backend\node_modules\nodemailer\lib\smtp-connection\index.js:809:19)
+    at SMTPConnection.login (C:\Projects\ParkGuard\backend\node_modules\nodemailer\lib\smtp-connection\index.js:454:38)
+    at C:\Projects\ParkGuard\backend\node_modules\nodemailer\lib\smtp-transport\index.js:375:32
+    at SMTPConnection.<anonymous> (C:\Projects\ParkGuard\backend\node_modules\nodemailer\lib\smtp-connection\index.js:215:17)
+    at Object.onceWrapper (node:events:632:28)
+    at SMTPConnection.emit (node:events:518:28)
+    at SMTPConnection._actionEHLO (C:\Projects\ParkGuard\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1371:14)
+    at SMTPConnection._processResponse (C:\Projects\ParkGuard\backend\node_modules\nodemailer\lib\smtp-connection\index.js:993:20)
+    at SMTPConnection._onData (C:\Projects\ParkGuard\backend\node_modules\nodemailer\lib\smtp-connection\index.js:774:14)
+    at SMTPConnection._onSocketData (C:\Projects\ParkGuard\backend\node_modules\nodemailer\lib\smtp-connection\index.js:195:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
