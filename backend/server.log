@@ -1,0 +1,1420 @@
+[2026-03-31 23:51:55.171 +0530] [32mINFO[39m: [36m🚀 ParkGuard API Server running on port 5000[39m
+[2026-03-31 23:51:55.182 +0530] [33mWARN[39m: [36m❌ DB Connection failed. Waiting 1000ms before retry (1/5)...[39m
+[2026-03-31 23:51:56.193 +0530] [33mWARN[39m: [36m❌ DB Connection failed. Waiting 2000ms before retry (2/5)...[39m
+[2026-03-31 23:51:58.196 +0530] [33mWARN[39m: [36m❌ DB Connection failed. Waiting 4000ms before retry (3/5)...[39m
+[2026-03-31 23:52:02.211 +0530] [33mWARN[39m: [36m❌ DB Connection failed. Waiting 8000ms before retry (4/5)...[39m
+[2026-03-31 23:52:10.220 +0530] [33mWARN[39m: [36m❌ DB Connection failed. Waiting 16000ms before retry (5/5)...[39m
+[2026-03-31 23:52:26.231 +0530] [31mERROR[39m: [36m❌ Maximum database retries reached. API online but database access endpoints will 500.[39m
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async testConnection (C:\Projects\ParkGuard\backend\config\database.js:47:20)
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.410 +0530] [32mINFO[39m: [36mrequest completed[39m
+    [35mreq[39m: {
+      "id": 1,
+      "method": "GET",
+      "url": "/api/auth/profile",
+      "query": {},
+      "params": {},
+      "headers": {
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 401,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "14",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "75",
+        "etag": "W/\"4b-uLWyebaGtAUJISIQw3Y/lozFk5k\""
+      }
+    }
+    [35mresponseTime[39m: 5
+[2026-03-31 23:52:32.416 +0530] [32mINFO[39m: [36mrequest completed[39m
+    [35mreq[39m: {
+      "id": 2,
+      "method": "GET",
+      "url": "/api/auth/profile",
+      "query": {},
+      "params": {},
+      "headers": {
+        "authorization": "Bearer invalid.token.here",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 401,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "13",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "76",
+        "etag": "W/\"4c-Qx9Y3eZ0+3fSSmJyUafUqhWr85w\""
+      }
+    }
+    [35mresponseTime[39m: 2
+[2026-03-31 23:52:32.430 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: "request entity too large"
+    [35mstatusCode[39m: 413
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.455 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.456 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.456 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 3,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "12",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "9",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 8
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.460 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.460 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.461 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 4,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "11",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "8",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 3
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.465 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.465 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.465 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 5,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "10",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 3
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.468 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.468 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.469 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 6,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "9",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "6",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 2
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.471 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.472 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.472 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 7,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "8",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "5",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 2
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.476 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.476 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.477 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 8,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "7",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "4",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 3
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.480 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.480 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.480 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 9,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "6",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "3",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 2
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.484 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.484 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.484 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 10,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "5",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "2",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 2
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.487 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.487 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.488 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 11,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "4",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "1",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 3
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.491 +0530] [31mERROR[39m: [36mDatabase query error[39m
+    [35mquery[39m: "SELECT id, name, email, password_hash, phone, role, is_active, is_verified,\n            created_at, updated_at\n     FROM users WHERE email = $1"
+    [35mparams[39m: [
+      "test@test.com"
+    ]
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async query (C:\Projects\ParkGuard\backend\config\database.js:70:17)
+              at async C:\Projects\ParkGuard\backend\routes\auth.js:295:18
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.491 +0530] [33mWARN[39m: [36m⚠️ Expected Platform Error Captured[39m
+    [35mmessage[39m: ""
+    [35murl[39m: "/api/auth/login"
+    [35mmethod[39m: "POST"
+    [35muserId[39m: null
+[2026-03-31 23:52:32.491 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 12,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 500,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "3",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "0",
+        "ratelimit-reset": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "449",
+        "etag": "W/\"1c1-0Wp1+/+CmWB/BbdY8MuQrlpzoGg\""
+      }
+    }
+    [35mresponseTime[39m: 2
+    err: {
+      "type": "Error",
+      "message": "failed with status code 500",
+      "stack":
+          Error: failed with status code 500
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }
+[2026-03-31 23:52:32.493 +0530] [32mINFO[39m: [36mrequest completed[39m
+    [35mreq[39m: {
+      "id": 13,
+      "method": "POST",
+      "url": "/api/auth/login",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "43",
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 429,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "15",
+        "x-ratelimit-remaining": "2",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "ratelimit-policy": "10;w=900",
+        "ratelimit-limit": "10",
+        "ratelimit-remaining": "0",
+        "ratelimit-reset": "900",
+        "retry-after": "900",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "113",
+        "etag": "W/\"71-HBXlSjYtzD0Xrmfrh3Ci/GioHjA\""
+      }
+    }
+    [35mresponseTime[39m: 1
+[2026-03-31 23:52:32.495 +0530] [32mINFO[39m: [36mrequest completed[39m
+    [35mreq[39m: {
+      "id": 14,
+      "method": "POST",
+      "url": "/api/orders/webhook",
+      "query": {},
+      "params": {},
+      "headers": {
+        "content-type": "application/json",
+        "stripe-signature": "invalid_sig",
+        "host": "localhost:5000",
+        "connection": "keep-alive",
+        "transfer-encoding": "chunked"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 200,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "300",
+        "x-ratelimit-remaining": "299",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "content-type": "text/html; charset=utf-8",
+        "content-length": "18",
+        "etag": "W/\"12-aSiYwEKFb07v2pFImqGAzLLoeeo\""
+      }
+    }
+    [35mresponseTime[39m: 1
+[2026-03-31 23:52:32.497 +0530] [31mERROR[39m: [36mReadiness check failed[39m
+    err: {
+      "type": "AggregateError",
+      "message": "",
+      "stack":
+          AggregateError [ECONNREFUSED]: 
+              at C:\Projects\ParkGuard\backend\node_modules\pg-pool\index.js:45:11
+              at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+              at async C:\Projects\ParkGuard\backend\server.js:130:5
+      "aggregateErrors": [
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED ::1:5432",
+          "stack":
+              Error: connect ECONNREFUSED ::1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "::1",
+          "port": 5432
+        },
+        {
+          "type": "Error",
+          "message": "connect ECONNREFUSED 127.0.0.1:5432",
+          "stack":
+              Error: connect ECONNREFUSED 127.0.0.1:5432
+                  at createConnectionError (node:net:1678:14)
+                  at afterConnectMultiple (node:net:1708:16)
+          "errno": -4078,
+          "code": "ECONNREFUSED",
+          "syscall": "connect",
+          "address": "127.0.0.1",
+          "port": 5432
+        }
+      ],
+      "code": "ECONNREFUSED"
+    }
+[2026-03-31 23:52:32.498 +0530] [32mINFO[39m: [36mrequest errored[39m
+    [35mreq[39m: {
+      "id": 15,
+      "method": "GET",
+      "url": "/api/ready",
+      "query": {},
+      "params": {},
+      "headers": {
+        "host": "localhost:5000",
+        "connection": "keep-alive"
+      },
+      "remoteAddress": "::1",
+      "remotePort": 61706
+    }
+    [35mres[39m: {
+      "statusCode": 503,
+      "headers": {
+        "cross-origin-opener-policy": "same-origin",
+        "cross-origin-resource-policy": "same-origin",
+        "origin-agent-cluster": "?1",
+        "referrer-policy": "no-referrer",
+        "strict-transport-security": "max-age=15552000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "x-dns-prefetch-control": "off",
+        "x-download-options": "noopen",
+        "x-frame-options": "SAMEORIGIN",
+        "x-permitted-cross-domain-policies": "none",
+        "x-xss-protection": "0",
+        "access-control-allow-origin": "http://localhost:3000",
+        "vary": "Origin, Accept-Encoding",
+        "access-control-allow-credentials": "true",
+        "x-ratelimit-limit": "300",
+        "x-ratelimit-remaining": "298",
+        "date": "Tue, 31 Mar 2026 18:22:32 GMT",
+        "x-ratelimit-reset": "1774982253",
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "58",
+        "etag": "W/\"3a-p/dM55Mo1t8zxp2v4jc4IJ/ceXE\""
+      }
+    }
+    [35mresponseTime[39m: 2
+    err: {
+      "type": "Error",
+      "message": "failed with status code 503",
+      "stack":
+          Error: failed with status code 503
+              at onResFinished (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:115:39)
+              at ServerResponse.onResponseComplete (C:\Projects\ParkGuard\backend\node_modules\pino-http\logger.js:178:14)
+              at ServerResponse.emit (node:events:530:35)
+              at onFinish (node:_http_outgoing:1082:10)
+              at callback (node:internal/streams/writable:766:21)
+              at afterWrite (node:internal/streams/writable:710:5)
+              at afterWriteTick (node:internal/streams/writable:696:10)
+              at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+    }

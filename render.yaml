@@ -1,0 +1,44 @@
+services:
+  # Database Service
+  - type: pgo
+    name: parkguard-db
+    plan: free
+    postgresMajorVersion: 15
+
+  # Node.js REST API
+  - type: web
+    name: parkguard-api
+    env: node
+    plan: free
+    region: ohio
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    preDeployCommand: node scripts/init_db.js
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: parkguard-db
+          property: connectionString
+      - key: NODE_ENV
+        value: production
+      - key: DB_USER
+        fromDatabase:
+          name: parkguard-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: parkguard-db
+          property: password
+      - key: DB_HOST
+        fromDatabase:
+          name: parkguard-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: parkguard-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: parkguard-db
+          property: database

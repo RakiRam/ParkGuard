@@ -46,8 +46,19 @@ const io = new Server(server, {
 
 // Security middleware
 app.use(helmet({ contentSecurityPolicy: false })); // Disabled strict CSP to avoid breaking frontend per spec
+
+const allowedOrigins = typeof env.FRONTEND_URL === 'string' 
+  ? env.FRONTEND_URL.split(',').map(u => u.trim().replace(/\/$/, '')) 
+  : [env.FRONTEND_URL];
+
 app.use(cors({
-  origin: env.FRONTEND_URL,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 

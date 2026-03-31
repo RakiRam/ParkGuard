@@ -410,14 +410,5 @@ ANALYZE orders;
 ANALYZE notifications;
 
 -- ===================================
--- GRANTS (Adjust based on your user roles)
--- ===================================
-
--- Grant necessary permissions to application user
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO parkguard_user;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO parkguard_user;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO parkguard_user;
-
--- ===================================
 -- END OF SCHEMA
 -- ===================================

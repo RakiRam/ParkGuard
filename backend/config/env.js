@@ -4,7 +4,7 @@ const envSchema = Joi.object({
   // General
   NODE_ENV: Joi.string().valid('development', 'production', 'test').default('development'),
   PORT: Joi.number().default(5000),
-  FRONTEND_URL: Joi.string().uri().required(),
+  FRONTEND_URL: Joi.string().required(), // Now accepts comma-separated lists for Vercel+Local
 
   // Database
   DB_USER: Joi.string().required(),
