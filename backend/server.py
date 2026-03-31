@@ -19,9 +19,9 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 app = FastAPI(title="ParkGuard Mock API")
 
-MONGO_URL = os.environ.get("MONGO_URL", "mongodb://localhost:27017")
-DB_NAME = os.environ.get("DB_NAME", "parkguard_db")
-JWT_SECRET = os.environ.get("JWT_SECRET", "parkguard_jwt_secret_key_2024_very_secure")
+MONGO_URL = os.environ["MONGO_URL"]
+DB_NAME = os.environ["DB_NAME"]
+JWT_SECRET = os.environ["JWT_SECRET"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -310,7 +310,7 @@ async def create_vehicle(data: VehicleInput, user: dict = Depends(get_current_us
         "is_active": True, "created_at": fmt_date(), "updated_at": fmt_date()
     }
     await db.vehicles.insert_one(vehicle)
-    frontend_url = os.environ.get("APP_URL", "http://localhost:3000")
+    frontend_url = os.environ.get("APP_URL", "")
     qr_url = f"{frontend_url}/scan?vehicle={qr_code}"
     resp = {k: v for k, v in vehicle.items() if k != "_id"}
     resp["qrCodeUrl"] = qr_url
@@ -322,7 +322,7 @@ async def list_vehicles(page: int = 1, limit: int = 10, user: dict = Depends(get
     query = {"user_id": user["id"], "is_active": True}
     total = await db.vehicles.count_documents(query)
     vehicles = await db.vehicles.find(query, {"_id": 0}).sort("created_at", -1).skip(skip).limit(limit).to_list(limit)
-    frontend_url = os.environ.get("APP_URL", "http://localhost:3000")
+    frontend_url = os.environ.get("APP_URL", "")
     for v in vehicles:
         v["qrCodeUrl"] = f"{frontend_url}/scan?vehicle={v['qr_code']}"
         inc_count = await db.incidents.count_documents({"vehicle_id": v["id"]})
@@ -342,7 +342,7 @@ async def get_vehicle(vehicle_id: str, user: dict = Depends(get_current_user)):
     vehicle = await db.vehicles.find_one({"id": vehicle_id}, {"_id": 0})
     if not vehicle:
         raise HTTPException(status_code=404, detail="Vehicle not found")
-    frontend_url = os.environ.get("APP_URL", "http://localhost:3000")
+    frontend_url = os.environ.get("APP_URL", "")
     vehicle["qrCodeUrl"] = f"{frontend_url}/scan?vehicle={vehicle['qr_code']}"
     incidents = await db.incidents.find({"vehicle_id": vehicle_id}, {"_id": 0}).sort("created_at", -1).limit(10).to_list(10)
     vehicle["recentIncidents"] = incidents
@@ -360,7 +360,7 @@ async def update_vehicle(vehicle_id: str, data: VehicleUpdate, user: dict = Depe
     updates["updated_at"] = fmt_date()
     await db.vehicles.update_one({"id": vehicle_id}, {"$set": updates})
     updated = await db.vehicles.find_one({"id": vehicle_id}, {"_id": 0})
-    frontend_url = os.environ.get("APP_URL", "http://localhost:3000")
+    frontend_url = os.environ.get("APP_URL", "")
     updated["qrCodeUrl"] = f"{frontend_url}/scan?vehicle={updated['qr_code']}"
     return {"success": True, "message": "Vehicle updated successfully", "data": {"vehicle": updated}}
 
