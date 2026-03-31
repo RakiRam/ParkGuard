@@ -1,0 +1,80 @@
+{
+  "theme": "Light",
+  "archetype": "4 (Swiss & High-Contrast)",
+  "reasoning": "A smart parking, QR scanning, and incident management app requires high utility, authority, and rapid clarity. The Swiss archetype provides a structured, highly functional aesthetic that makes critical actions (scanning, reporting, VoIP, alerts) stand out through sharp contrasts, removing unnecessary decorative noise. 95% of the UI should be monochrome, using color purely as function.",
+  "colors": {
+    "background": "#F4F4F5",
+    "surface": "#FFFFFF",
+    "primary": "#0033FF",
+    "primary_hover": "#0022CC",
+    "secondary": "#E4E4E7",
+    "accent_alert": "#FF3B30",
+    "accent_warning": "#FFCC00",
+    "accent_success": "#34C759",
+    "text_main": "#09090B",
+    "text_muted": "#71717A",
+    "border": "#E4E4E7"
+  },
+  "typography": {
+    "headings": {
+      "family": "Cabinet Grotesk, sans-serif",
+      "weight": "font-black or font-bold",
+      "tracking": "tracking-tighter",
+      "h1_max": "text-5xl sm:text-6xl"
+    },
+    "body": {
+      "family": "IBM Plex Sans, sans-serif",
+      "weight": "font-normal",
+      "tracking": "tracking-normal",
+      "size": "text-base"
+    },
+    "labels": {
+      "style": "uppercase tracking-[0.2em] text-xs font-bold text-text_muted"
+    }
+  },
+  "layout_spacing": {
+    "grid_strategy_marketing": "Bento Grid (Mode A) - asymmetrical, gap-8 to gap-12. Avoid perfect symmetry.",
+    "grid_strategy_dashboard": "Control Room Grid (Mode B) - strict hierarchy, gap-4 to gap-6. Dense, every pixel utilized. High correlation, scannability.",
+    "spacing_scale": "p-4, p-6, p-8, p-12, p-16, p-24",
+    "surface_style": "Grid Borders (Technical look) with 1px border and 0 shadow for standard structural cards. Neumorphism twist (1px border + soft shadow) only for active floating items.",
+    "radius": "rounded-none or max rounded-md (8px) for a sharper, structured, functional look"
+  },
+  "components": {
+    "buttons": "Sharp corners or subtle rounded-md. High contrast. Hover states MUST have text color explicitly set (e.g., hover:bg-black hover:text-white).",
+    "forms": "Use Shadcn customized. Input fields should have a crisp 1px border. Focus states must clearly increase contrast: focus:ring-2 focus:ring-primary focus:ring-offset-2.",
+    "navigation": "Crystal Glassmorphism: backdrop-blur-xl bg-white/70 (or bg-white/90), border-b border-black/5. Must not be transparent.",
+    "tables_data": "Dense padding, left-aligned text. Clear grid lines or stripped backgrounds.",
+    "notifications": "Sonner toast with sharp borders and distinct alert (Red), success (Green), warning (Yellow) colors. Real-time dropdown should be strictly functional without fluff.",
+    "icons": "@phosphor-icons/react (Duotone or Regular for a polished technical feel)."
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1772631327083-10df47b724e6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjB1c2luZyUyMHBob25lJTIwbmVhciUyMGNhcnxlbnwwfHx8fDE3NzQ5NzUwOTl8MA&ixlib=rb-4.1.0&q=85",
+      "category": "hero",
+      "description": "Person holding phone near car, ideal for Landing Page Hero section showing QR scanning in action."
+    },
+    {
+      "url": "https://images.pexels.com/photos/3760534/pexels-photo-3760534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "category": "feature_voip",
+      "description": "Businessman texting near a parked car. Use for the VoIP calling or Incident Notification features section."
+    },
+    {
+      "url": "https://images.pexels.com/photos/28986830/pexels-photo-28986830.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "category": "feature_vehicle_management",
+      "description": "Modern sports car parked in an urban garage. Use for the Vehicle Management or Admin Dashboard visual block."
+    }
+  ],
+  "accessibility_and_testing": {
+    "contrast": "Ensure APCA/WCAG AA compliance. Use text-shadow over any imagery.",
+    "testing": "All interactive elements MUST have data-testid attributes (kebab-case, role-based). For example: data-testid='login-submit-button', data-testid='scan-qr-button'."
+  },
+  "instructions_to_main_agent": [
+    "Do NOT use 'Inter', 'Roboto', or 'Open Sans' for headings. Install and use Cabinet Grotesk for headings and IBM Plex Sans for body text.",
+    "Follow Archetype 4 rules: 95% of the UI should be monochrome (white, gray, black). Use the primary color (#0033FF) and alert colors ONLY to guide action.",
+    "Ensure the dashboard uses a dense, 'Control Room' grid layout. Do not overuse generic Shadcn cards with thick shadows; stick to sharp 1px borders.",
+    "Implement the landing page hero overlay with a maximum of bg-white/40 (glassmorphism approach). Never use fully transparent headers.",
+    "Install @phosphor-icons/react for all iconography to maintain a high-end technical feel.",
+    "For the E-commerce QR sticker product listing, use a crisp CSS-styled mock element or placeholder geometric art, as the AI image generator hit rate limits.",
+    "Ensure 'data-testid' is present on all buttons, links, inputs, and major interactive nodes for testing."
+  ]
+}
