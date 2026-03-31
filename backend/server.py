@@ -323,10 +323,15 @@ async def list_vehicles(page: int = 1, limit: int = 10, user: dict = Depends(get
     total = await db.vehicles.count_documents(query)
     vehicles = await db.vehicles.find(query, {"_id": 0}).sort("created_at", -1).skip(skip).limit(limit).to_list(limit)
     frontend_url = os.environ.get("APP_URL", "")
+    vehicle_ids = [v["id"] for v in vehicles]
+    inc_counts_agg = await db.incidents.aggregate([
+        {"$match": {"vehicle_id": {"$in": vehicle_ids}}},
+        {"$group": {"_id": "$vehicle_id", "count": {"$sum": 1}}}
+    ]).to_list(None)
+    inc_map = {item["_id"]: item["count"] for item in inc_counts_agg}
     for v in vehicles:
         v["qrCodeUrl"] = f"{frontend_url}/scan?vehicle={v['qr_code']}"
-        inc_count = await db.incidents.count_documents({"vehicle_id": v["id"]})
-        v["incidentCount"] = inc_count
+        v["incidentCount"] = inc_map.get(v["id"], 0)
     total_pages = max(1, (total + limit - 1) // limit)
     return {
         "success": True,
@@ -472,9 +477,12 @@ async def get_my_incidents(status: str = "all", page: int = 1, limit: int = 20, 
     total = await db.incidents.count_documents(query_filter)
     skip = (page - 1) * limit
     incidents = await db.incidents.find(query_filter, {"_id": 0}).sort("created_at", -1).skip(skip).limit(limit).to_list(limit)
-    # Enrich with vehicle info
+    # Batch enrich with vehicle info
+    veh_ids = list(set(inc["vehicle_id"] for inc in incidents))
+    vehs = await db.vehicles.find({"id": {"$in": veh_ids}}, {"_id": 0}).to_list(None)
+    veh_map = {v["id"]: v for v in vehs}
     for inc in incidents:
-        veh = await db.vehicles.find_one({"id": inc["vehicle_id"]}, {"_id": 0})
+        veh = veh_map.get(inc["vehicle_id"])
         if veh:
             inc["license_plate"] = veh["license_plate"]
             inc["vehicle_type"] = veh["type"]
@@ -637,10 +645,11 @@ async def admin_stats(user: dict = Depends(get_current_user)):
     incidents_count = await db.incidents.count_documents({})
     orders_count = await db.orders.count_documents({})
     products_count = await db.products.count_documents({"is_active": True})
-    total_revenue = 0
-    orders = await db.orders.find({"status": {"$in": ["paid", "processing", "shipped", "delivered"]}}).to_list(1000)
-    for o in orders:
-        total_revenue += o.get("total_amount", 0)
+    revenue_agg = await db.orders.aggregate([
+        {"$match": {"status": {"$in": ["paid", "processing", "shipped", "delivered"]}}},
+        {"$group": {"_id": None, "total_revenue": {"$sum": "$total_amount"}}}
+    ]).to_list(1)
+    total_revenue = round(revenue_agg[0]["total_revenue"], 2) if revenue_agg else 0
     return {
         "success": True,
         "data": {
